@@ -18,11 +18,27 @@ This repository includes a lightweight Python prototype for a **crypto ATM trans
 python3 crypto_atm.py
 ```
 
-## Run tests
+## Testing
+
+### Standard test run
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
+
+### Advanced validation coverage included
+
+The test suite now includes deeper checks beyond basic happy-path behavior:
+
+- Duplicate wallet and cross-currency rejection behavior.
+- Transaction lookup + audit-log consistency.
+- Fee quantization/rounding validation to 8 decimal places.
+- High-volume randomized transfer simulation with invariant checks:
+  - every successful transfer is confirmed,
+  - blockchain entries match audit transfer events,
+  - total user balances decrease only by collected fees.
+
+These tests are deterministic (`random.seed(7)`) to keep CI results stable.
 
 ## Notes
 

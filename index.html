@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlas Insight</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-bar">
+        <div>
+          <h1>Atlas Insight</h1>
+          <p class="subtitle">A compact fusion of live map exploration + operational intelligence workflows.</p>
+        </div>
+        <div class="top-actions">
+          <button id="simulateFeed">Simulate Live Feed</button>
+          <button id="clearSelection" class="secondary">Clear Selection</button>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="map-panel">
+          <div class="map-toolbar">
+            <span id="activeFilter" class="chip">Filter: All Layers</span>
+            <div>
+              <button data-filter="all" class="filter-btn active">All</button>
+              <button data-filter="transport" class="filter-btn">Transport</button>
+              <button data-filter="infrastructure" class="filter-btn">Infrastructure</button>
+              <button data-filter="risk" class="filter-btn">Risk</button>
+            </div>
+          </div>
+          <div id="mapGrid" class="map-grid" aria-label="Synthetic map"></div>
+        </section>
+
+        <aside class="intel-panel">
+          <section class="card">
+            <h2>Operational Layers</h2>
+            <ul id="layerList" class="layer-list"></ul>
+          </section>
+
+          <section class="card">
+            <h2>Selected Node</h2>
+            <div id="nodeDetails" class="details empty">Pick any map tile to inspect mission context.</div>
+          </section>
+
+          <section class="card">
+            <h2>Mission Timeline</h2>
+            <ol id="timeline" class="timeline"></ol>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
